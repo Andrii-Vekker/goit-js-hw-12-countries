@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Roboto;
+}
+
+.input-box {
+  min-width: 700px;
+}
+
+.input-countries {
+  width: 200px;
+  height: 20px;
+}
+
+.contriesList {
+  list-style: none;
+  margin: 20px;
+  padding: 0;
+  width: 200px;
+  height: 20px;
+}
