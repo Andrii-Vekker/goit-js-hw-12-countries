@@ -1,7 +1,8 @@
+import countriesTemplate from './templates/countries.hbs'
 import './styles.css';
  const debounce = require('lodash.debounce');
-import './notifications'
-
+import  './notifications'
+import { data } from 'autoprefixer';
 
 //========================input=============================//
 
@@ -20,11 +21,18 @@ const ref = {
     inputRef: document.querySelector('#name-input'),
     spanRef: document.querySelector('#name-output')
 };
-ref.inputRef.addEventListener('input', handleTextInput);
+ref.inputRef.addEventListener('input', debounce(handleTextInput), 500);
 function handleTextInput(event) {
     ref.inputRef.value = ref.spanRef.textContent = event.target.value;
 };
 
 
 
-//============================
+//============================Fetch===========================//
+
+let name = [];
+fetch('https://restcountries.eu/rest/v2/name/eesti')
+    .then(response => response.json())
+    .then(([{name}]) => {
+        console.log(name);
+    };
