@@ -11,35 +11,20 @@ import './styles.css';
 let inputRef = document.querySelector('#name-input');
  const nameRefMurkup = document.querySelector('#name-output')
 
- inputRef.addEventListener('input', debounce(handleTextInput), 500);
+ inputRef.addEventListener('input', debounce(handleTextInput), 3500);
 function handleTextInput(event) {
     let nameCountry = '';
     nameCountry = event.target.value
+     nameRefMurkup.textContent = nameCountry
 
 fetch(`https://restcountries.eu/rest/v2/name/${nameCountry}`)
     .then(response => response.json())
-    .then(name => {
-        //console.log(name)
-        const murkup = countriesTpl(name);
+    .then(nameCountry => {
+        console.log(nameCountry)
+        const murkup = countriesTpl(nameCountry);
         console.log(murkup)
         nameRefMurkup.insertAdjacentHTML('beforeend', murkup)
     });
  };
-// inputRef.addEventListener('input', handleInputChange)
 
-
-
-
-// function handleInputChange(event) {
-
-//     inputRef.value = nameRef.textContent = event.target.value;
-// }
-// const ref = {
-//     inputRef: document.querySelector('#name-input'),
-//     spanRef: document.querySelector('#name-output')
-// };
-
-
-
-//============================Fetch===========================//
 
